@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Extracurricular;
-use Inertia\Inertia;
-
 class ExtracurricularController extends Controller
 {
     /**
@@ -15,7 +13,7 @@ class ExtracurricularController extends Controller
     {
         $extracurriculars = Extracurricular::latest()->get();
 
-        return Inertia::render('extracurriculars/index', [
+        return view('extracurriculars.index', [
             'extracurriculars' => $extracurriculars
         ]);
     }

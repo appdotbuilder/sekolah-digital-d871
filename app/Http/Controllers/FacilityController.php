@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Facility;
-use Inertia\Inertia;
-
 class FacilityController extends Controller
 {
     /**
@@ -15,7 +13,7 @@ class FacilityController extends Controller
     {
         $facilities = Facility::latest()->get();
 
-        return Inertia::render('facilities/index', [
+        return view('facilities.index', [
             'facilities' => $facilities
         ]);
     }

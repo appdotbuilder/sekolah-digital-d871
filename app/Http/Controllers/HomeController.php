@@ -7,8 +7,6 @@ use App\Models\News;
 use App\Models\Extracurricular;
 use App\Models\Gallery;
 use App\Models\Facility;
-use Inertia\Inertia;
-
 class HomeController extends Controller
 {
     /**
@@ -28,7 +26,7 @@ class HomeController extends Controller
             ->take(8)
             ->get();
 
-        return Inertia::render('welcome', [
+        return view('welcome', [
             'latestNews' => $latestNews,
             'extracurriculars' => $extracurriculars,
             'recentPhotos' => $recentPhotos,

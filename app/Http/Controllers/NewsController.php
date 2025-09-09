@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
-use Inertia\Inertia;
-
 class NewsController extends Controller
 {
     /**
@@ -17,7 +15,7 @@ class NewsController extends Controller
             ->latest('published_at')
             ->paginate(12);
 
-        return Inertia::render('news/index', [
+        return view('news.index', [
             'news' => $news
         ]);
     }
@@ -38,7 +36,7 @@ class NewsController extends Controller
             ->take(4)
             ->get();
 
-        return Inertia::render('news/show', [
+        return view('news.show', [
             'news' => $news,
             'relatedNews' => $relatedNews
         ]);

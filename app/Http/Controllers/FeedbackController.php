@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFeedbackRequest;
 use App\Models\Feedback;
-use Inertia\Inertia;
-
 class FeedbackController extends Controller
 {
     /**
@@ -14,7 +12,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        return Inertia::render('feedback/create');
+        return view('feedback.create');
     }
 
     /**
@@ -27,7 +25,7 @@ class FeedbackController extends Controller
             'message' => $request->validated()['message'],
         ]);
 
-        return Inertia::render('feedback/success')
+        return view('feedback.success')
             ->with('success', 'Saran Anda telah berhasil dikirim. Terima kasih!');
     }
 

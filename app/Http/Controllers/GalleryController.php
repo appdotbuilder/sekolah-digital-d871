@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
-use Inertia\Inertia;
-
 class GalleryController extends Controller
 {
     /**
@@ -15,7 +13,7 @@ class GalleryController extends Controller
     {
         $galleries = Gallery::latest()->paginate(24);
 
-        return Inertia::render('gallery/index', [
+        return view('gallery.index', [
             'galleries' => $galleries
         ]);
     }
